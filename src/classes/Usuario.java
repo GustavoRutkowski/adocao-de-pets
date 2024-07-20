@@ -52,6 +52,14 @@ public class Usuario {
         return this.pets;
     };
 
+    public void cadastrarPet(Pet pet, Anuncio anuncio) {
+        // Implementar lógica para cadastrar um novo Pet...
+    };
+
+    public void resolverAdocao(Adocao adocao, Boolean foiAceita) {
+        // Resolve um pedido de adoção
+    };
+
     public void imprimirDados() {
         System.out.println("nomeUsuario: " + this.getNomeUsuario());
         System.out.println("nomeCompleto: " + this.getNome());

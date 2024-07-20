@@ -99,15 +99,21 @@ public class Usuario {
         System.out.println("descricaoPerfil: " + this.descricaoPerfil);
         System.out.println("salario: " + this.getSalario());
         System.out.println("pets: " + this.getPets());
-        System.out.println("solicitacoes: " + this.getSolicitacoes());
-        System.out.println("anuncios: " + this.getAnuncios());
 
         for (int i = 0; i < this.getPets().size(); i++) {
-            System.out.println(this.getPets().get(i).getNome());
+            System.out.println(this.getPets().get(i));
         };
 
+        System.out.println("solicitacoes: " + this.getSolicitacoes());
+        
         for (int i = 0; i < this.getSolicitacoes().size(); i++) {
             System.out.println(this.getSolicitacoes().get(i));
+        };
+
+        System.out.println("anuncios: " + this.getAnuncios());
+
+        for (int i = 0; i < this.getAnuncios().size(); i++) {
+            System.out.println(this.getAnuncios().get(i));
         };
     }; 
 };

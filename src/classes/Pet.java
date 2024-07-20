@@ -11,6 +11,8 @@ public class Pet {
         this.dono = dono;
     };
 
+    // Getters
+
     public String getNome() {
         return this.nome;
     };
@@ -27,9 +29,11 @@ public class Pet {
         return this.getDono().getNome();
     };
 
+    // Métodos
+
     public void imprimirDados() {
-        System.out.println(this.nome);
-        System.out.println(this.descricao);
-        System.out.println(this.dono);
+        System.out.println(this.getNome());
+        System.out.println(this.getDescricao());
+        System.out.println(this.getDono());
     };
 };

@@ -13,17 +13,13 @@ public class SolicitacaoAdocao {
 
     // Getters
 
-    public String getStatus() {
-        return this.status;
-    };
+    public String getStatus() { return this.status; }
+    public Anuncio getAnuncio() { return this.anuncio; }
+    public Usuario getAutor() { return this.autor; }
 
-    public Anuncio getAnuncio() {
-        return this.anuncio;
-    };
+    // Setter
 
-    public Usuario getAutor() {
-        return this.autor;
-    };
+    public void setStatus(String novoStatus) { this.status = novoStatus; }
 
     // Métodos
 

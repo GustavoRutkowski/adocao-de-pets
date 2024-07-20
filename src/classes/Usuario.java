@@ -28,41 +28,15 @@ public class Usuario {
 
     // Getters
 
-    public String getNomeUsuario() {
-        return this.nomeUsuario;
-    };
-
-    public String getNome() {
-        return this.nomeCompleto;
-    };
-
-    public String getEmail() {
-        return this.email;
-    };
-
-    public String getSenha() {
-        return this.senha;
-    };
-
-    public String getPreferencia() {
-        return this.preferencia;
-    }
-
-    public double getSalario() {
-        return this.salario;
-    };
-
-    public ArrayList<Pet> getPets() {
-        return this.pets;
-    };
-
-    public ArrayList<SolicitacaoAdocao> getSolicitacoes() {
-        return this.solicitacoes;
-    };
-
-    public ArrayList<Anuncio> getAnuncios() {
-        return this.anuncios;
-    };
+    public String getNomeUsuario() { return this.nomeUsuario; }
+    public String getNome() { return this.nomeCompleto; }
+    public String getEmail() { return this.email; }
+    public String getSenha() { return this.senha; }
+    public String getPreferencia() { return this.preferencia; }
+    public double getSalario() { return this.salario; }
+    public ArrayList<Pet> getPets() { return this.pets; }
+    public ArrayList<SolicitacaoAdocao> getSolicitacoes() { return this.solicitacoes; }
+    public ArrayList<Anuncio> getAnuncios() { return this.anuncios; }
 
     // Métodos
 

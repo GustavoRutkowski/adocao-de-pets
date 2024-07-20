@@ -2,7 +2,6 @@ package classes;
 
 import java.util.ArrayList;
 
-// Anuncio (1:1) - (0:N) SolicitacaoAdocao
 public class Anuncio {
     private String descricao;
     private Pet pet;
@@ -16,17 +15,13 @@ public class Anuncio {
 
     // Getters
 
-    public String getDescricao() {
-        return this.descricao;
-    };
+    public String getDescricao() { return this.descricao; }
+    public Pet getPet() { return this.pet; }
+    public ArrayList<SolicitacaoAdocao> getSolicitacoes() { return this.solicitacoes; }
 
-    public Pet getPet() {
-        return this.pet;
-    };
+    // Setters
 
-    public ArrayList<SolicitacaoAdocao> getSolicitacoes() {
-        return this.solicitacoes;
-    };
+    public void setDescricao(String novaDescricao) { this.descricao = novaDescricao; }
 
     // Métodos
 

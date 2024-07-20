@@ -33,35 +33,53 @@ public class Usuario {
     public String getEmail() { return this.email; }
     public String getSenha() { return this.senha; }
     public String getPreferencia() { return this.preferencia; }
+    public String getDescricao() { return this.descricaoPerfil; }
     public double getSalario() { return this.salario; }
     public ArrayList<Pet> getPets() { return this.pets; }
     public ArrayList<SolicitacaoAdocao> getSolicitacoes() { return this.solicitacoes; }
     public ArrayList<Anuncio> getAnuncios() { return this.anuncios; }
 
+    // Setters
+
+    public void setNomeUsuario(String novoNome) { this.nomeUsuario = novoNome; }
+    public void setSenha(String novaSenha) { this.senha = novaSenha; }
+    public void setPreferencia(String novaPreferencia) { this.preferencia = novaPreferencia; }
+    public void setDescricao(String novaDescricao) { this.descricaoPerfil = novaDescricao; }
+    public void setSalario(double novoSalario) { this.salario = novoSalario; }
+
     // Métodos
 
     public void solicitarAdocao(Anuncio anuncio) {
-        // Implementar a lógica para solicitar uma adoção...
+        SolicitacaoAdocao solicitacao = new SolicitacaoAdocao(anuncio, this);
+
+        this.solicitacoes.add(solicitacao);
     };
 
     public void cancelarSolicitacao(SolicitacaoAdocao solicitacao) {
-        // Implementar a lógica de cancelar solicitação...
+        this.solicitacoes.remove(solicitacao);
     };
 
     public void cadastrarAnuncio(Pet pet, String descricao) {
-        // Implementar a lógica de cadastrar um novo anúncio de pet...
+        Anuncio anuncio = new Anuncio(descricao, pet);
+
+        this.anuncios.add(anuncio);  
     };
 
     public void editarAnuncio(Anuncio anuncio, String novaDescricao) {
-        // Implementar a lógica de editar um anúncio de pet...
+        anuncio.setDescricao(novaDescricao);
     };
 
     public void removerAnuncio(Anuncio anuncio) {
-        // Implementar lógica de remover anúncios de pets...
+        this.anuncios.remove(anuncio);
     };
 
     public void resolverAdocao(SolicitacaoAdocao adocao, Boolean foiAceita) {
-        // Resolve um pedido de adoção...
+        if (!foiAceita) {
+            adocao.setStatus("rejeitada");
+            return;
+        }
+        
+        adocao.setStatus("aceita");
     };
 
     public void imprimirDados() {
@@ -70,7 +88,7 @@ public class Usuario {
         System.out.println("email: " + this.getEmail());
         System.out.println("senha: " + this.getEmail());
         System.out.println("preferencia: " + this.getPreferencia());
-        System.out.println("descricaoPerfil: " + this.descricaoPerfil);
+        System.out.println("descricaoPerfil: " + this.getDescricao());
         System.out.println("salario: " + this.getSalario());
         System.out.println("pets: " + this.getPets());
 

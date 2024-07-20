@@ -1,12 +1,12 @@
 package classes;
 
 public class SolicitacaoAdocao {
-    private String status;
+    private String status; // pendente/rejeitada/aceita 
     private Anuncio anuncio;
     private Usuario autor;
 
-    public SolicitacaoAdocao(String status, Anuncio anuncio, Usuario autor) {
-        this.status = status;
+    public SolicitacaoAdocao(Anuncio anuncio, Usuario autor) {
+        this.status = "pendente";
         this.anuncio = anuncio;
         this.autor = autor;
     };

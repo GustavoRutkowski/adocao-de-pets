@@ -16,18 +16,23 @@ public class Administrador extends Usuario {
     // Métodos
 
     public void banirUsuario(Usuario usuario) {
-        // Implementar a lógica de banir o usuário...
+        if (!(usuario instanceof Administrador)) {
+            Sistema.usuarios.remove(usuario);
+        };
     };
 
     public void editarDescricaoUsuario(Usuario usuario, String novaDescricao) {
-        // Implementar lógica de editar descrição do usuário...
+        if (!(usuario instanceof Administrador)) {
+            usuario.setDescricao(novaDescricao);
+        };
     };
 
     public void editarAnuncio(Anuncio anuncio, String novaDescricao) {
-        // Implementar a lógica de editar um anúncio como administrador...
+        anuncio.setDescricao(novaDescricao);
     };
 
     public void removerAnuncio(Anuncio anuncio) {
-        // Implementar lógica de remover anúncio como administrador...
+        anuncio.getAutor().getAnuncios().remove(anuncio);
+        Sistema.anuncios.remove(anuncio);
     };
 };

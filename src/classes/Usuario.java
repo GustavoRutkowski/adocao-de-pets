@@ -50,36 +50,48 @@ public class Usuario {
     // Métodos
 
     public void solicitarAdocao(Anuncio anuncio) {
-        SolicitacaoAdocao solicitacao = new SolicitacaoAdocao(anuncio, this);
-
-        this.solicitacoes.add(solicitacao);
+        if (!anuncio.getAutor().equals(this)) {
+            SolicitacaoAdocao solicitacao = new SolicitacaoAdocao(anuncio, this);
+    
+            this.solicitacoes.add(solicitacao);
+            Sistema.solicitacoes.add(solicitacao);
+        };
     };
 
     public void cancelarSolicitacao(SolicitacaoAdocao solicitacao) {
         this.solicitacoes.remove(solicitacao);
+        Sistema.solicitacoes.remove(solicitacao);
     };
 
     public void cadastrarAnuncio(Pet pet, String descricao) {
-        Anuncio anuncio = new Anuncio(descricao, pet);
-
-        this.anuncios.add(anuncio);  
+        if (pet.getDono().equals(this)) {
+            Anuncio anuncio = new Anuncio(this, descricao, pet);
+    
+            this.anuncios.add(anuncio);
+            Sistema.anuncios.add(anuncio);
+        };
     };
 
     public void editarAnuncio(Anuncio anuncio, String novaDescricao) {
-        anuncio.setDescricao(novaDescricao);
+        if (anuncio.getAutor().equals(this)) {
+            anuncio.setDescricao(novaDescricao);
+        };
     };
 
     public void removerAnuncio(Anuncio anuncio) {
         this.anuncios.remove(anuncio);
+        Sistema.anuncios.remove(anuncio);
     };
 
     public void resolverAdocao(SolicitacaoAdocao adocao, Boolean foiAceita) {
-        if (!foiAceita) {
-            adocao.setStatus("rejeitada");
-            return;
-        }
-        
-        adocao.setStatus("aceita");
+        if (adocao.getAnuncio().getAutor().equals(this)) {
+            if (!foiAceita) {
+                adocao.setStatus("rejeitada");
+                return;
+            };
+            
+            adocao.setStatus("aceita");
+        };
     };
 
     public void imprimirDados() {

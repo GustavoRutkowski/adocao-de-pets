@@ -9,11 +9,11 @@ public class Administrador extends Usuario {
         // Implementar a lógica de banir o usuário...
     };
 
-    public void removerAnuncio(Anuncio anuncio) {
-        // Implementar a lógica de remover anúncio...        
+    public void editarAnuncio(Anuncio anuncio, String novaDescricao) {
+        // Implementar a lógica de editar um anúncio como administrador...
     };
 
-    public void editarAnuncio(Anuncio anuncio) {
-        // Implementar a lógica de editar um anúncio.
+    public void removerAnuncio(Anuncio anuncio) {
+        // Implementar lógica de remover anúncio como administrador...
     };
 };

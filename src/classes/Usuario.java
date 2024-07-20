@@ -3,15 +3,16 @@ package classes;
 import java.util.ArrayList;
 
 public class Usuario {
-    private String nomeUsuario; // Nickname ou apelido qualquer
-    private String nomeCompleto; // Nome completo Real da pessoa
+    private String nomeUsuario;
+    private String nomeCompleto;
     private String email;
     private String senha;
-    // Ajuda a saber sobre as notificações que o usuário deseja receber.
     private String preferencia;
     private String descricaoPerfil;
     private double salario;
-    private ArrayList<Pet> pets; // ArrayList de Pets
+    private ArrayList<Pet> pets;
+    private ArrayList<SolicitacaoAdocao> solicitacoes;
+    private ArrayList<Anuncio> anuncios;
 
     public Usuario(String nomeUsuario, String nomeCompleto, String email, String senha, String preferencia, String descricaoPerfil, double salario) {
         this.nomeUsuario = nomeUsuario;
@@ -22,7 +23,10 @@ public class Usuario {
         this.descricaoPerfil = descricaoPerfil;
         this.salario = salario;
         this.pets = new ArrayList<>();
+        this.solicitacoes = new ArrayList<>();
     };
+
+    // Getters
 
     public String getNomeUsuario() {
         return this.nomeUsuario;
@@ -52,12 +56,38 @@ public class Usuario {
         return this.pets;
     };
 
-    public void cadastrarPet(Pet pet, Anuncio anuncio) {
-        // Implementar lógica para cadastrar um novo Pet...
+    public ArrayList<SolicitacaoAdocao> getSolicitacoes() {
+        return this.solicitacoes;
     };
 
-    public void resolverAdocao(Adocao adocao, Boolean foiAceita) {
-        // Resolve um pedido de adoção
+    public ArrayList<Anuncio> getAnuncios() {
+        return this.anuncios;
+    };
+
+    // Métodos
+
+    public void solicitarAdocao(Anuncio anuncio) {
+        // Implementar a lógica para solicitar uma adoção...
+    };
+
+    public void cancelarSolicitacao(SolicitacaoAdocao solicitacao) {
+        // Implementar a lógica de cancelar solicitação...
+    };
+
+    public void cadastrarAnuncio(Pet pet, String descricao) {
+        // Implementar a lógica de cadastrar um novo anúncio de pet...
+    };
+
+    public void editarAnuncio(Anuncio anuncio, String novaDescricao) {
+        // Implementar a lógica de editar um anúncio de pet...
+    };
+
+    public void removerAnuncio(Anuncio anuncio) {
+        // Implementar lógica de remover anúncios de pets...
+    };
+
+    public void resolverAdocao(SolicitacaoAdocao adocao, Boolean foiAceita) {
+        // Resolve um pedido de adoção...
     };
 
     public void imprimirDados() {
@@ -69,9 +99,15 @@ public class Usuario {
         System.out.println("descricaoPerfil: " + this.descricaoPerfil);
         System.out.println("salario: " + this.getSalario());
         System.out.println("pets: " + this.getPets());
+        System.out.println("solicitacoes: " + this.getSolicitacoes());
+        System.out.println("anuncios: " + this.getAnuncios());
 
-        for (int i = 0; i < this.pets.size(); i++) {
+        for (int i = 0; i < this.getPets().size(); i++) {
             System.out.println(this.getPets().get(i).getNome());
+        };
+
+        for (int i = 0; i < this.getSolicitacoes().size(); i++) {
+            System.out.println(this.getSolicitacoes().get(i));
         };
     }; 
 };

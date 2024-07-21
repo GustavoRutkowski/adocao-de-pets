@@ -1,4 +1,4 @@
-package classes;
+package classes.entities;
 
 public class SolicitacaoAdocao {
     private String status; // pendente/rejeitada/aceita 

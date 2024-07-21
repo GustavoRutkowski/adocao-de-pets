@@ -1,4 +1,4 @@
-package classes;
+package classes.entities;
 
 public class Pet {
     private String nome;

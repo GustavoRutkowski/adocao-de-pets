@@ -1,6 +1,8 @@
 package classes;
 import java.util.ArrayList;
 
+import classes.entities.*;
+
 public class Sistema {
     public static ArrayList<Usuario> usuarios;
     public static ArrayList<Administrador> administradores;

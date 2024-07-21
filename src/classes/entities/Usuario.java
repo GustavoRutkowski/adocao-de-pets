@@ -1,6 +1,8 @@
-package classes;
+package classes.entities;
 
 import java.util.ArrayList;
+
+import classes.Sistema;
 
 public class Usuario {
     private String nomeUsuario;

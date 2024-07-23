@@ -1,13 +1,16 @@
 // import classes.Usuario;
 // import classes.Pet;
+import classes.browser.Pagina;
 
 public class Main {
     public static void main(String[] args) {
-        // System.out.println("-".repeat(90));
+        Pagina registrarUsuario = new Pagina("Registrar Usuário", "");
+        Pagina registrarPet = new Pagina("Registrar Pet", "");
 
-        String resetCode = "\u001B[0m";
-        String redColorCode = "\u001B[31m";
+        Pagina registro = new Pagina("Registro", "");
+        registro.getLinks().add(registrarUsuario);
+        registro.getLinks().add(registrarPet);
 
-        System.out.println(redColorCode + "Tentativa inválida!" + resetCode);
-    }
-}
+        registro.mostrarMenu();
+    };
+};

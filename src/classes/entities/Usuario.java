@@ -17,7 +17,7 @@ public class Usuario {
     private ArrayList<Anuncio> anuncios;
 
     public Usuario(String nomeUsuario, String nomeCompleto, String email, String senha, String preferencia, String descricaoPerfil, double salario) {
-        this.nomeUsuario = nomeUsuario;
+        this.nomeUsuario = "@" + nomeUsuario;
         this.nomeCompleto = nomeCompleto;
         this.email = email;
         this.senha = senha;

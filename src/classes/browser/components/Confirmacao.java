@@ -1,5 +1,7 @@
 package classes.browser.components;
 
-public class Confirmacao {
+import classes.browser.Componente;
+
+public class Confirmacao extends Componente {
     
 }

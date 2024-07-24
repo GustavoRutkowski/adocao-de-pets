@@ -17,53 +17,90 @@ public class Navegador {
 
     // Getters
 
-    public ArrayList<Pagina> getPaginas() {
+    public static ArrayList<Pagina> getPaginas() {
         return paginas;
     };
 
-    public Pagina getPaginaAtual() {
+    public static Pagina getPaginaAtual() {
         return paginaAtual;
     };
 
-    public Pagina getPaginaAnterior() {
+    public static Pagina getPaginaAnterior() {
         return paginaAnterior;
     };
 
-    public Pagina getPaginaSeguinte() {
+    public static Pagina getPaginaSeguinte() {
         return paginaSeguinte;
     };
 
     // Setters
 
-    public void setPaginaAtual(Pagina novaPaginaAtual) {
+    public static void setPaginaAtual(Pagina novaPaginaAtual) {
         paginaAtual = novaPaginaAtual;
     };
 
-    public void setPaginaAnterior(Pagina novaPaginaAnterior) {
+    public static void setPaginaAnterior(Pagina novaPaginaAnterior) {
         paginaAnterior = novaPaginaAnterior;
     };
 
-    public void setPaginaSeguinte(Pagina novaPaginaSeguinte) {
+    public static void setPaginaSeguinte(Pagina novaPaginaSeguinte) {
         paginaSeguinte = novaPaginaSeguinte;
     };
 
     // Métodos
 
-    private void alterarPagina(int incremento) {
+    private static void renderizarHeader() {
+        int larguraLinha = 80;
+        String titulo = paginaAtual.getTitulo();
+        int tamanhoTitulo = titulo.length();
+        int espacamentoTitulo = (larguraLinha - tamanhoTitulo) / 2;
+        String espacos = " ".repeat(espacamentoTitulo);
+
+        System.out.println("-".repeat(larguraLinha));
+        System.out.println(espacos + titulo + espacos);
+        System.out.println("-".repeat(larguraLinha));
+    };
+
+    private static void renderizarComponentes() {
+        ArrayList<Componente> componentes = paginaAtual.getComponentes();
+
+        for (int i = 0; i < componentes.size(); i++) {
+            Componente componente = componentes.get(i);
+
+            componente.carregar();
+        };
+    };
+
+    public static void renderizarPagina() {
+        renderizarHeader();
+        renderizarComponentes();
+    };
+
+    public static void alterarPagina(int indice) {
         int indiceAtual = paginas.indexOf(paginaAtual);
-        int indiceAnterior = paginas.indexOf(paginaAnterior);
-        int indiceSeguinte = paginas.indexOf(paginaSeguinte);
-    
-        paginaAtual = paginas.get(indiceAtual+incremento);
-        paginaAnterior = paginas.get(indiceAnterior+incremento);
-        paginaSeguinte = paginas.get(indiceSeguinte+incremento);
+        int novoIndiceAtual = indiceAtual + indice;
+
+        paginaAtual = paginas.get(novoIndiceAtual);
+        paginaAnterior = paginas.get(novoIndiceAtual-indice);
+        paginaSeguinte = paginas.get(indiceAtual+indice);
     };
 
-    public void irParaPaginaSeguinte() {
-        alterarPagina(1);
+    public static void alterarPagina(Pagina pagina) {
+        int indiceRedirecao = paginas.indexOf(pagina);
+
+        setPaginaAtual(paginas.get(indiceRedirecao));
+        setPaginaAnterior(paginas.get(indiceRedirecao-1));
+        setPaginaSeguinte(paginas.get(indiceRedirecao));
+        paginaSeguinte = paginas.get(indiceRedirecao+1);
     };
 
-    public void irParaPaginaAnterior() {
-        alterarPagina(-1);
+    public static void irParaPaginaAnterior() {
+        int indicePaginaAtual = paginas.indexOf(paginaAtual);
+        alterarPagina(indicePaginaAtual-1);
+    };
+
+    public static void irParaPaginaSeguinte() {
+        int indicePaginaAtual = paginas.indexOf(paginaAtual);
+        alterarPagina(indicePaginaAtual+1);
     };
 };

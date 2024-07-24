@@ -1,5 +1,7 @@
 package classes.browser.components;
 
-public class Texto {
+import classes.browser.Componente;
+
+public class Texto extends Componente {
     
 }

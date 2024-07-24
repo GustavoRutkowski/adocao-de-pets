@@ -1,5 +1,7 @@
 package classes.browser.components;
 
-public class Entrada {
+import classes.browser.Componente;
+
+public class Entrada extends Componente {
     
 }

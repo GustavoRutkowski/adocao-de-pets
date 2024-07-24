@@ -1,5 +1,7 @@
 package classes.browser.components;
 
-public class Links {
+import classes.browser.Componente;
+
+public class Links extends Componente {
     
 }

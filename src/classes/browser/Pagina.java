@@ -25,11 +25,19 @@ public class Pagina {
         this.componentes = new ArrayList<>();
     };
 
+    // Getters
+
     public String getTitulo() {
         return this.titulo;
     };
 
     public ArrayList<Componente> getComponentes() {
         return this.componentes;
+    };
+
+    // Setter
+
+    public void setTitulo(String novoTitulo) {
+        this.titulo = novoTitulo;
     };
 };

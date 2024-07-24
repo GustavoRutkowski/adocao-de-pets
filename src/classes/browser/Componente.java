@@ -1,7 +1,5 @@
 package classes.browser;
 
-public class Componente {
-    public void carregar() {
-        
-    };
-}
+public interface Componente {
+    public void carregar();
+};

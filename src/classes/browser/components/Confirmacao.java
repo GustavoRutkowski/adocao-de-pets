@@ -1,6 +1,6 @@
 package classes.browser.components;
 
-import classes.browser.Componente;
+import interfaces.Componente;
 
 public class Confirmacao implements Componente {
     @Override

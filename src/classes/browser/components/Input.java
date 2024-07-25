@@ -1,8 +1,8 @@
 package classes.browser.components;
 
-import classes.browser.Componente;
+import interfaces.Componente;
 
-public class Entrada implements Componente {
+public class Input implements Componente {
     @Override
     public void carregar() {
         

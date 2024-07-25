@@ -2,6 +2,8 @@ package classes.browser;
 
 import java.util.ArrayList;
 
+import interfaces.Componente;
+
 // import java.util.ArrayList;
 // import java.util.Scanner;
 

@@ -2,6 +2,7 @@ package classes.browser.components;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
 import classes.browser.Log;
 import interfaces.Componente;
 
@@ -17,7 +18,7 @@ public class Input implements Componente {
         this.respostasInvalidas = new ArrayList<>();
         this.resposta = null;
     };
-
+    
     // Getters
 
     public String getTitulo() {
@@ -36,7 +37,7 @@ public class Input implements Componente {
         return this.resposta;
     };
 
-    // Setters
+    // Setter
 
     public void setTitulo(String novoTitulo) {
         this.titulo = novoTitulo;
@@ -46,7 +47,7 @@ public class Input implements Componente {
         this.resposta = novaResposta;
     };
 
-    // Método
+    // Métodos
 
     private void avaliarTentativa(String resposta) {
         Boolean ehValida = this.getRespostasValidas().contains(resposta);
@@ -56,12 +57,16 @@ public class Input implements Componente {
         if (respostaInvalida) { Log.tentativaInvalida(); }
     };
 
-    private void validarResposta() {
+    public void validarResposta(Boolean quebra) {
         Scanner sc = new Scanner(System.in);
 
         String resposta;
         do {
-            System.out.print(this.getTitulo());
+            if (quebra) {
+                System.out.println(this.getTitulo());
+            } else {
+                System.out.print(this.getTitulo());
+            };
 
             resposta = sc.nextLine();
             
@@ -80,6 +85,6 @@ public class Input implements Componente {
 
     @Override
     public void carregar() {
-        validarResposta();
+        this.validarResposta(false);
     };
 };

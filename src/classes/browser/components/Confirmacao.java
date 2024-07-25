@@ -1,12 +1,12 @@
 package classes.browser.components;
 
-import interfaces.Componente;
-
-public class Confirmacao implements Componente {
-    
+public class Confirmacao extends Input {
+    public Confirmacao(String titulo) {
+        super(titulo);
+    };
 
     @Override
     public void carregar() {
-        
+        this.validarResposta(true);
     };
 };

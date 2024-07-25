@@ -1,7 +1,6 @@
 package classes.browser;
 
 import java.util.ArrayList;
-
 import interfaces.Componente;
 
 // import java.util.ArrayList;
@@ -12,11 +11,6 @@ import interfaces.Componente;
 // Ex.:
 // 1. Páginas de Listas de Usuários, Pets, Admins, Anúncios, Solicitações...
 // 2. Páginas de Perfil
-
-
-// Cada página deve possuir ao mínimo:
-// Título da Página
-// Lista de Componentes a serem apresentados
 
 public class Pagina {
     private String titulo;

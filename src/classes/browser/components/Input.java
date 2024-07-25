@@ -2,16 +2,19 @@ package classes.browser.components;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import classes.browser.Log;
 import interfaces.Componente;
 
 public class Input implements Componente {
     private String titulo;
-    private ArrayList<String> restricoes;
+    private ArrayList<String> respostasValidas;
+    private ArrayList<String> respostasInvalidas;
     private String resposta;
 
     public Input(String titulo) {
         this.titulo = titulo;
-        this.restricoes = new ArrayList<>();
+        this.respostasValidas = new ArrayList<>();
+        this.respostasInvalidas = new ArrayList<>();
         this.resposta = null;
     };
 
@@ -21,8 +24,12 @@ public class Input implements Componente {
         return this.titulo;
     };
 
-    public ArrayList<String> getRestricoes() {
-        return this.restricoes;
+    public ArrayList<String> getRespostasValidas() {
+        return this.respostasValidas;
+    };
+
+    public ArrayList<String> getRespostasInvalidas() {
+        return this.respostasInvalidas;
     };
 
     public String getResposta() {
@@ -41,15 +48,38 @@ public class Input implements Componente {
 
     // Método
 
-    @Override
-    public void carregar() {
+    private void avaliarTentativa(String resposta) {
+        Boolean ehValida = this.getRespostasValidas().contains(resposta);
+        Boolean ehInvalida = this.getRespostasInvalidas().contains(resposta); 
+        Boolean respostaInvalida =  !ehValida || ehInvalida;
+
+        if (respostaInvalida) { Log.tentativaInvalida(); }
+    };
+
+    private void validarResposta() {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print(this.getTitulo());
+        String resposta;
+        do {
+            System.out.print(this.getTitulo());
 
-        String resposta = sc.nextLine();
+            resposta = sc.nextLine();
+            
+            Boolean semRespostasValidas = respostasValidas.isEmpty();
+            Boolean semRespostasInvalidas = respostasInvalidas.isEmpty();
+            Boolean nenhumaValidacao = semRespostasValidas && semRespostasInvalidas;
+            if (nenhumaValidacao) { break; }
+
+            avaliarTentativa(resposta);
+        } while (!respostasValidas.contains(resposta));
+
         this.setResposta(resposta);
 
         sc.close();
+    };
+
+    @Override
+    public void carregar() {
+        validarResposta();
     };
 };

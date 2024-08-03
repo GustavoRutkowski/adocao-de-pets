@@ -1,6 +1,6 @@
 package classes.browser.components;
 
-import interfaces.Componente;
+import interfaces.browser.Componente;
 
 public class Texto implements Componente {
     private String conteudo;

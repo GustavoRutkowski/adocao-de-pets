@@ -12,7 +12,7 @@ public class SolicitacaoAdocao {
         this.anuncio = anuncio;
         this.autor = autor;
 
-        Sistema.solicitacoes.add(this);
+        Sistema.getSolicitacoes().add(this);
     };
 
     // Getters

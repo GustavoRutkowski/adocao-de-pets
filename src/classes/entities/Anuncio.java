@@ -15,7 +15,7 @@ public class Anuncio {
         this.pet = pet;
         this.solicitacoes = new ArrayList<>();
 
-        Sistema.anuncios.add(this);
+        Sistema.getAnuncios().add(this);
     };
 
     // Getters

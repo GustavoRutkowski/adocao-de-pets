@@ -5,7 +5,7 @@ import java.util.Scanner;
 import classes.browser.Link;
 import classes.browser.Navegador;
 import classes.browser.Pagina;
-import interfaces.Componente;
+import interfaces.browser.Componente;
 
 public class Links implements Componente {
     private ArrayList<Link> links;

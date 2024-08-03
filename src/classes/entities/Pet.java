@@ -19,7 +19,7 @@ public class Pet {
         this.dono = dono;
 
         this.dono.getPets().add(this);
-        Sistema.pets.add(this);
+        Sistema.getPets().add(this);
     };
 
     // Getters

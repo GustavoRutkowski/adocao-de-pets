@@ -1,7 +1,8 @@
 package classes.browser;
 
 import java.util.ArrayList;
-import interfaces.Componente;
+
+import interfaces.browser.Componente;
 
 public class Navegador {
     private static ArrayList<Pagina> paginas = new ArrayList<>();
@@ -25,6 +26,18 @@ public class Navegador {
 
     public static Pagina getPaginaSeguinte() {
         return paginaSeguinte;
+    };
+
+    public static Pagina getPaginaPorURL(String url) {
+        for (int i = 0; i < paginas.size(); i++) {
+            Pagina pagina = paginas.get(i);
+            
+            if (pagina.getURL().equals(url)) {
+                return pagina;
+            };
+        };
+
+        return null;
     };
 
     // Setters
@@ -86,15 +99,5 @@ public class Navegador {
         setPaginaAtual(paginas.get(indiceRedirecao));
         setPaginaAnterior(paginas.get(indiceRedirecao-1));
         setPaginaSeguinte(paginas.get(indiceRedirecao+1));
-    };
-
-    public static void irParaPaginaAnterior() {
-        int indicePaginaAtual = paginas.indexOf(paginaAtual);
-        alterarPagina(indicePaginaAtual-1);
-    };
-
-    public static void irParaPaginaSeguinte() {
-        int indicePaginaAtual = paginas.indexOf(paginaAtual);
-        alterarPagina(indicePaginaAtual+1);
     };
 };

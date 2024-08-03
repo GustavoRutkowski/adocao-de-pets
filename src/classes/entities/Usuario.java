@@ -16,7 +16,11 @@ public class Usuario {
     private ArrayList<SolicitacaoAdocao> solicitacoes;
     private ArrayList<Anuncio> anuncios;
 
-    public Usuario(String nomeUsuario, String nomeCompleto, String email, String senha, String preferencia, String descricaoPerfil, double salario) {
+    public Usuario(String nomeUsuario, String nomeCompleto, String email, String senha, String preferencia, String descricaoPerfil, double salario) throws Exception {
+        if (Sistema.getUsuarioPorNome("@" + nomeUsuario) != null) {
+            throw new Exception("\u001B[31mNome de usuário já existe.\u001B[0m");
+        };
+        
         this.nomeUsuario = "@" + nomeUsuario;
         this.nomeCompleto = nomeCompleto;
         this.email = email;
@@ -28,7 +32,7 @@ public class Usuario {
         this.solicitacoes = new ArrayList<>();
         this.anuncios = new ArrayList<>();
 
-        Sistema.usuarios.add(this);
+        Sistema.getUsuarios().add(this);
     };
 
     // Getters
@@ -59,13 +63,13 @@ public class Usuario {
             SolicitacaoAdocao solicitacao = new SolicitacaoAdocao(anuncio, this);
     
             this.solicitacoes.add(solicitacao);
-            Sistema.solicitacoes.add(solicitacao);
+            Sistema.getSolicitacoes().add(solicitacao);
         };
     };
 
     public void cancelarSolicitacao(SolicitacaoAdocao solicitacao) {
         this.solicitacoes.remove(solicitacao);
-        Sistema.solicitacoes.remove(solicitacao);
+        Sistema.getSolicitacoes().remove(solicitacao);
     };
 
     public void cadastrarAnuncio(Pet pet, String descricao) {
@@ -73,7 +77,7 @@ public class Usuario {
             Anuncio anuncio = new Anuncio(this, descricao, pet);
     
             this.anuncios.add(anuncio);
-            Sistema.anuncios.add(anuncio);
+            Sistema.getAnuncios().add(anuncio);
         };
     };
 
@@ -85,7 +89,7 @@ public class Usuario {
 
     public void removerAnuncio(Anuncio anuncio) {
         this.anuncios.remove(anuncio);
-        Sistema.anuncios.remove(anuncio);
+        Sistema.getAnuncios().remove(anuncio);
     };
 
     public void resolverAdocao(SolicitacaoAdocao adocao, Boolean foiAceita) {

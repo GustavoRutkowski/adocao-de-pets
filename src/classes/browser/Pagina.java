@@ -19,6 +19,12 @@ public class Pagina {
     public Pagina(String titulo) {
         this.titulo = titulo;
         this.componentes = new ArrayList<>();
+
+        Navegador.getPaginas().add(this);
+
+        if (Navegador.getPaginas().size() == 1) {
+            Navegador.renderizarPagina();  
+        };
     };
 
     // Getters

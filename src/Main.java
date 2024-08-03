@@ -1,16 +1,36 @@
-// import classes.Usuario;
-// import classes.Pet;
-// import classes.browser.Pagina;
-
-// import java.util.Scanner;
+import java.util.ArrayList;
+import classes.Sistema;
+import classes.entities.Administrador;
+import classes.entities.Pet;
+import classes.entities.Usuario;
 
 public class Main {
     public static void main(String[] args) {
-        // Define as constantes para as cores
-        final String ANSI_RESET = "\u001B[0m";
-        final String ANSI_RED = "\u001B[31m";
+        Render.administradores();
+        Render.pets();
 
-        // Imprime o texto em vermelho
-        System.out.println(ANSI_RED + "Número " + ANSI_RESET + "INVÁLIDO!");
-    }
-}
+        ArrayList<Administrador> admins = Sistema.administradores;
+        for (int i = 0; i < admins.size(); i++) {
+            Administrador admin = admins.get(i);
+
+            admin.imprimirDados();
+            System.out.println();
+        };
+
+        ArrayList<Pet> pets = Sistema.pets;
+        for (int i = 0; i < pets.size(); i++) {
+            Pet pet = pets.get(i);
+
+            pet.imprimirDados();
+            System.out.println();
+        };
+
+        ArrayList<Usuario> usuarios = Sistema.usuarios;
+        for (int i = 0; i < usuarios.size(); i++) {
+            Usuario usuario = usuarios.get(i);
+
+            usuario.imprimirDados();
+            System.out.println();
+        };
+    };
+};

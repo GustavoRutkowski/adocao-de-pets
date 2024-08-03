@@ -21,11 +21,14 @@ public class Usuario {
         this.nomeCompleto = nomeCompleto;
         this.email = email;
         this.senha = senha;
-        this.preferencia = preferencia;
+        this.preferencia = preferencia; // gato, cachorro ou ambos 
         this.descricaoPerfil = descricaoPerfil;
         this.salario = salario;
         this.pets = new ArrayList<>();
         this.solicitacoes = new ArrayList<>();
+        this.anuncios = new ArrayList<>();
+
+        Sistema.usuarios.add(this);
     };
 
     // Getters
@@ -104,22 +107,26 @@ public class Usuario {
         System.out.println("preferencia: " + this.getPreferencia());
         System.out.println("descricaoPerfil: " + this.getDescricao());
         System.out.println("salario: " + this.getSalario());
-        System.out.println("pets: " + this.getPets());
 
-        for (int i = 0; i < this.getPets().size(); i++) {
-            System.out.println(this.getPets().get(i));
+        if (!this.getPets().isEmpty()) {
+            System.out.println("pets: ");
+            for (int i = 0; i < this.getPets().size(); i++) {
+                System.out.println("- " + this.getPets().get(i).getNome());
+            };
         };
 
-        System.out.println("solicitacoes: " + this.getSolicitacoes());
-        
-        for (int i = 0; i < this.getSolicitacoes().size(); i++) {
-            System.out.println(this.getSolicitacoes().get(i));
+        if (!this.getSolicitacoes().isEmpty()) {
+            System.out.println("solicitacoes: ");
+            for (int i = 0; i < this.getSolicitacoes().size(); i++) {
+                System.out.println("- " + this.getSolicitacoes().get(i));
+            };
         };
 
-        System.out.println("anuncios: " + this.getAnuncios());
-
-        for (int i = 0; i < this.getAnuncios().size(); i++) {
-            System.out.println(this.getAnuncios().get(i));
+        if (!this.getAnuncios().isEmpty()) {
+            System.out.println("anuncios: ");
+            for (int i = 0; i < this.getAnuncios().size(); i++) {
+                System.out.println("- " + this.getAnuncios().get(i).getDescricao());
+            };
         };
     }; 
 };

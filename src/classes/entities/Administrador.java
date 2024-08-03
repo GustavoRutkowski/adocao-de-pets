@@ -13,6 +13,8 @@ public class Administrador extends Usuario {
             descricaoPerfil,
             salario
         );
+
+        Sistema.administradores.add(this);
     };
 
     // Métodos

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import interfaces.Componente;
 
 public class Navegador {
-    private static ArrayList<Pagina> paginas;
+    private static ArrayList<Pagina> paginas = new ArrayList<>();
     private static Pagina paginaAtual;
     private static Pagina paginaAnterior;
     private static Pagina paginaSeguinte;
@@ -62,6 +62,7 @@ public class Navegador {
             Componente componente = componentes.get(i);
 
             componente.carregar();
+            System.out.println();
         };
     };
 

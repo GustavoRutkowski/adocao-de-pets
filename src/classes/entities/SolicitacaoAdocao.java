@@ -1,5 +1,7 @@
 package classes.entities;
 
+import classes.Sistema;
+
 public class SolicitacaoAdocao {
     private String status; // pendente/rejeitada/aceita 
     private Anuncio anuncio;
@@ -9,6 +11,8 @@ public class SolicitacaoAdocao {
         this.status = "pendente";
         this.anuncio = anuncio;
         this.autor = autor;
+
+        Sistema.solicitacoes.add(this);
     };
 
     // Getters
@@ -21,11 +25,11 @@ public class SolicitacaoAdocao {
 
     public void setStatus(String novoStatus) { this.status = novoStatus; }
 
-    // Métodos
+    // Método
 
     public void imprimirDados() {
         System.out.println("status: " + this.getStatus());
-        System.out.println("anuncio: " + this.getAnuncio());
-        System.out.println("autor: " + this.getAutor());
+        System.out.println("anuncio: " + this.getAnuncio().getDescricao());
+        System.out.println("autor: " + this.getAutor().getNomeUsuario());
     };
 };

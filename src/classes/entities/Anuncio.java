@@ -1,6 +1,7 @@
 package classes.entities;
 
 import java.util.ArrayList;
+import classes.Sistema;
 
 public class Anuncio {
     private Usuario autor;
@@ -13,6 +14,8 @@ public class Anuncio {
         this.descricao = descricao;
         this.pet = pet;
         this.solicitacoes = new ArrayList<>();
+
+        Sistema.anuncios.add(this);
     };
 
     // Getters
@@ -31,11 +34,13 @@ public class Anuncio {
     public void imprimirDados() {
         System.out.println("autor: " + this.getAutor());
         System.out.println("descricao: " + this.getDescricao());
-        System.out.println("pet: " + this.getPet());
-        System.out.println("solicitacoes: " + this.getSolicitacoes());
+        System.out.println("pet: " + this.getPet().getNome());
 
-        for (int i = 0; i < this.getSolicitacoes().size(); i++) {
-            System.out.println(this.getSolicitacoes().get(i));
+        if (!this.getSolicitacoes().isEmpty()) {
+            System.out.println("solicitacoes: ");
+            for (int i = 0; i < this.getSolicitacoes().size(); i++) {
+                System.out.println("- " + this.getSolicitacoes().get(i));
+            };
         };
     };
 };

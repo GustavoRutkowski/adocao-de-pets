@@ -2,7 +2,6 @@ package classes.browser.components;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import classes.browser.Log;
 import interfaces.Componente;
 

@@ -18,11 +18,16 @@ public class Usuario implements IEntidade {
     private ArrayList<Anuncio> anuncios;
 
     public Usuario(String nomeUsuario, String nomeCompleto, String email, String senha, String preferencia, String descricaoPerfil, double salario) throws Exception {
-        if (Sistema.getUsuarioPorNome("@" + nomeUsuario) != null) {
+        // Garante que o nome começa com um @
+        String nomeComArroba = nomeUsuario.charAt(0) == '@'
+            ? nomeUsuario
+            : "@" + nomeUsuario;
+
+        if (Sistema.getUsuarioPorNome(nomeComArroba) != null) {
             throw new Exception("\u001B[31mNome de usuário já existe.\u001B[0m");
         };
         
-        this.nomeUsuario = "@" + nomeUsuario;
+        this.nomeUsuario = nomeComArroba;
         this.nomeCompleto = nomeCompleto;
         this.email = email;
         this.senha = senha;
@@ -117,6 +122,7 @@ public class Usuario implements IEntidade {
         System.out.println("Salário: R$" + this.getSalario());
 
         if (!this.getPets().isEmpty()) {
+            System.out.println();
             System.out.println("Pets: ");
             for (int i = 0; i < this.getPets().size(); i++) {
                 System.out.println("- " + this.getPets().get(i).getNome());
@@ -124,6 +130,7 @@ public class Usuario implements IEntidade {
         };
 
         if (!this.getSolicitacoes().isEmpty()) {
+            System.out.println();
             System.out.println("Solicitações: ");
             for (int i = 0; i < this.getSolicitacoes().size(); i++) {
                 System.out.println("- " + this.getSolicitacoes().get(i));
@@ -131,6 +138,7 @@ public class Usuario implements IEntidade {
         };
 
         if (!this.getAnuncios().isEmpty()) {
+            System.out.println();
             System.out.println("Anúncios: ");
             for (int i = 0; i < this.getAnuncios().size(); i++) {
                 System.out.println("- " + this.getAnuncios().get(i).getDescricao());

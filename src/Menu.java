@@ -4,18 +4,20 @@ import interfaces.IEntidade;
 import classes.FerramentasConsole;
 import classes.Sistema;
 import classes.registrations.CadastroUsuarios;
+import classes.registrations.CadastroPets;
+import classes.registrations.CadastroAdmins;
 
 public class Menu {
     private Scanner sc;
     private CadastroUsuarios cadastroUsuario;
-    // private CadastroPets cadastroPets;
-    // private CadastroAdministradores cadastroAdministradores;
+    private CadastroPets cadastroPets;
+    private CadastroAdmins cadastroAdministradores;
 
     public Menu() {
         this.sc = new Scanner(System.in);
         this.cadastroUsuario = new CadastroUsuarios();
-        // this.cadastroPets = new CadastroPets();
-        // this.cadastroAdministradores = new CadastroAdministradores();
+        this.cadastroPets = new CadastroPets();
+        this.cadastroAdministradores = new CadastroAdmins();
     }
 
     public void exibirMenu() throws Exception {
@@ -41,17 +43,21 @@ public class Menu {
                 case 1:
                     FerramentasConsole.limpar();
                     cadastroUsuario.carregar();
+
                     break;
                 case 2:
-                    // LimpaTela.limpar();
-                    // cadastroPets.carregar();
+                    FerramentasConsole.limpar();
+                    cadastroPets.carregar();
+
                     break;
                 case 3:
-                    // LimpaTela.limpar();
-                    // cadastroAdministradores.carregar();
+                    FerramentasConsole.limpar();
+                    cadastroAdministradores.carregar();
+
                     break;
                 case 4:
                     FerramentasConsole.limpar();
+                    FerramentasConsole.escreverTitulo("Usuarios");
 
                     ArrayList<IEntidade> usuarios = new ArrayList<>(Sistema.getUsuarios());
                     listarEntidades(usuarios);
@@ -59,6 +65,7 @@ public class Menu {
                     break;
                 case 5:
                     FerramentasConsole.limpar();
+                    FerramentasConsole.escreverTitulo("Pets");
 
                     ArrayList<IEntidade> pets = new ArrayList<>(Sistema.getPets());
                     listarEntidades(pets);
@@ -66,6 +73,7 @@ public class Menu {
                     break;
                 case 6:
                     FerramentasConsole.limpar();
+                    FerramentasConsole.escreverTitulo("Administradores");
 
                     ArrayList<IEntidade> admins = new ArrayList<>(Sistema.getAdministradores());
                     listarEntidades(admins);

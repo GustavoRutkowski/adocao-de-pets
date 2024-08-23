@@ -1,8 +1,9 @@
 package classes.entities;
 
 import classes.Sistema;
+import interfaces.IEntidade;
 
-public class SolicitacaoAdocao {
+public class SolicitacaoAdocao implements IEntidade {
     private String status; // pendente/rejeitada/aceita 
     private Anuncio anuncio;
     private Usuario autor;

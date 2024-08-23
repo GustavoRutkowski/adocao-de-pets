@@ -1,8 +1,9 @@
 package classes.entities;
 
 import classes.Sistema;
+import interfaces.IEntidade;
 
-public class Pet {
+public class Pet implements IEntidade {
     private String nome;
     private String tipo;
     private int anoNascimento;

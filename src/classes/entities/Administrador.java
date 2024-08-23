@@ -2,6 +2,7 @@ package classes.entities;
 
 import classes.Sistema;
 
+
 public class Administrador extends Usuario {
     public Administrador(String nomeUsuario, String nomeCompleto, String email, String senha, String preferencia, String descricaoPerfil, double salario) throws Exception {
         super(

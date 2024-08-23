@@ -2,8 +2,9 @@ package classes.entities;
 
 import java.util.ArrayList;
 import classes.Sistema;
+import interfaces.IEntidade;
 
-public class Anuncio {
+public class Anuncio implements IEntidade {
     private Usuario autor;
     private String descricao;
     private Pet pet;

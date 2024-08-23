@@ -3,8 +3,9 @@ package classes.entities;
 import java.util.ArrayList;
 
 import classes.Sistema;
+import interfaces.IEntidade;
 
-public class Usuario {
+public class Usuario implements IEntidade {
     private String nomeUsuario;
     private String nomeCompleto;
     private String email;
@@ -104,30 +105,33 @@ public class Usuario {
     };
 
     public void imprimirDados() {
-        System.out.println("nomeUsuario: " + this.getNomeUsuario());
-        System.out.println("nomeCompleto: " + this.getNome());
-        System.out.println("email: " + this.getEmail());
-        System.out.println("senha: " + this.getEmail());
-        System.out.println("preferencia: " + this.getPreferencia());
-        System.out.println("descricaoPerfil: " + this.getDescricao());
-        System.out.println("salario: " + this.getSalario());
+        System.out.println(this.getNomeUsuario());
+        System.out.println("Nome Completo: " + this.getNome());
+        System.out.println("E-Mail: " + this.getEmail());
+        System.out.println("Senha: " + this.getSenha());
+        System.out.println("Preferência: " + this.getPreferencia());
+        System.out.println();
+        System.out.println("BIO:");
+        System.out.println(this.getDescricao());
+        System.out.println();
+        System.out.println("Salário: R$" + this.getSalario());
 
         if (!this.getPets().isEmpty()) {
-            System.out.println("pets: ");
+            System.out.println("Pets: ");
             for (int i = 0; i < this.getPets().size(); i++) {
                 System.out.println("- " + this.getPets().get(i).getNome());
             };
         };
 
         if (!this.getSolicitacoes().isEmpty()) {
-            System.out.println("solicitacoes: ");
+            System.out.println("Solicitações: ");
             for (int i = 0; i < this.getSolicitacoes().size(); i++) {
                 System.out.println("- " + this.getSolicitacoes().get(i));
             };
         };
 
         if (!this.getAnuncios().isEmpty()) {
-            System.out.println("anuncios: ");
+            System.out.println("Anúncios: ");
             for (int i = 0; i < this.getAnuncios().size(); i++) {
                 System.out.println("- " + this.getAnuncios().get(i).getDescricao());
             };
